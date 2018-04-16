@@ -1,0 +1,27 @@
+.container {
+    background-color: black;
+    padding: 20px;
+    background-image: url("assets/space_bg.png");
+
+    background-size: cover;
+    
+
+    
+}
+
+.content {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #009fdb;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content2 {
+
+    border-top: 2px dashed #009fdb;
+    display: flex;
+    /* display:flex; */
+    justify-content:space-between;
+    
+}

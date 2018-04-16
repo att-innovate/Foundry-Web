@@ -1,0 +1,23 @@
+.container {
+
+    font-weight: 100;
+    white-space: pre-line;
+    width: 400px;
+
+}
+
+.title {
+    font-family: "att_thin";
+    margin: 0;
+    border-bottom: 2px solid white;
+    white-space: normal;
+}
+
+.title2 {
+    font-family: "att_regular";
+    color: #009fdb;
+}
+
+.text {
+    margin:0;
+}

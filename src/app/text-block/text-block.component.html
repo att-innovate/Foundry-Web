@@ -1,0 +1,6 @@
+<div #el class="container" [@animationState]="state" (@animationState.done)="animationDone($event)" (click)="toggleState()">
+  <h2 class="title">{{title1}}
+    <span class="title2">{{title2}}</span>
+  </h2>
+  <p #el2 [@animationState2]="state2" (@animationState2.done)="animationDone($event)" class="text">{{text}}</p>
+</div>
