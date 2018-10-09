@@ -1,0 +1,29 @@
+<div [@animState]="animState" *ngIf="data" [ngClass]="data.type=='bot'?'bffmsg bot':'bffmsg human'">
+
+  <!-- <div class="profile">
+      <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+  </div> -->
+   
+  <img *ngIf="data.emoji" [src]="data.emoji" [alt]="data.message" height="30">
+
+  <p class="message">
+   {{data.message}}
+  </p>
+  <br>
+
+ <!--  <div *ngIf="data.type=='bot'">
+    <span *ngIf="data.uitype=='butn' && data.options">
+      <button *ngFor="let butn of data.options" (click)="butnClick(butn)">{{butn}}</button>
+    </span>
+
+    <div *ngIf="data.uitype=='slider'" class="slidecontainer">
+      <input #myRange type="range" [min]="data.options[0]" [max]="data.options[1]" [value]="rate" class="slider" (change)="onChange($event)">
+
+      <span style="margin-left:5px;display:flex;justify-content:space-between">
+        <small *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">{{item}}</small>
+      </span>
+    </div>
+  </div> -->
+
+  <small [style.float]="data.type=='bot'?'right':'left'" style="color:gray;padding:20px 0 20px 0">{{curDate| date:'medium'}}</small>
+</div>

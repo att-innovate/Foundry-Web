@@ -4,7 +4,34 @@ img {
     cursor: pointer;
 }
 
+p {
+    margin-top: 0px;
+}
+
 
 img:hover {
     transform: scale(1.2);
+}
+
+.icon-data {
+    width: 350px;
+    position: absolute;
+    float: left;
+    margin-left: -100px;
+}
+
+.hrz-line-up {
+    border-top: 2px dashed #1AA0D9;
+}
+
+.hrz-line-down {
+    border-bottom: 2px dashed #1AA0D9;
+}
+
+.vrt-line {
+    border-left: 2px dashed #1AA0D9;
+}
+
+.line {
+    border-left: 2px dashed #1AA0D9;
 }

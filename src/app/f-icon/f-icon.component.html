@@ -1,4 +1,9 @@
-<div #el style="text-align: center" [@animationState]="state">
+<div #el style="text-align: center" [@animationState]="state" (mouseover)="showData()" (mouseout)="hideData()">
   <img [src]="url" alt="" height="100">
   <p>{{text}}</p>
+  <div #dat class="icon-data" style="visibility: hidden;">{{desc}}</div>
+  <div #lineTop class="hrz-line-up" style="visibility: hidden;"></div>
+  <div #lineLeft class="vrt-line" style="visibility: hidden;"></div>
+  <div #lineBottom class="hrz-line-down" style="visibility: hidden;"></div>
+  <div #line class="line" style="visibility: hidden;"></div>
 </div>

@@ -1,0 +1,23 @@
+
+<div #main [@animState]="animState" class="container" [style.height.px]="getHeight()">
+
+  <img *ngIf="showCloseButn" class="close-butn" src="assets/close.svg" height="40" (click)="onCloseClick()" alt="">
+  <!-- <div class="header">
+      <h3>CVAAS BFF</h3>
+  </div> -->
+
+  <div #content class="body-container">
+    <bff-message *ngFor="let item of chatlist" [data]="item" (onButnClick)="onButnClick($event)"></bff-message>
+  </div>
+
+  
+  <!-- <div  style="padding: 10px 15px; background-color: #e6e6e6; border-top: 1px solid #ddd; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;">
+    <div style="display: table; width: 100%;border-collapse: separate;">
+      <textarea style="float: left; border: 1px solid #ccc; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(0,0,0,.075); transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 80%; font-size: 14px; color: #716d6d; height: 40px;"></textarea>
+      <span>
+        <button style="float: left; border-bottom-left-radius: 0; border-top-left-radius: 0; color: #fff; background-color: #09a1e8; border-color: #2e6da4; font-weight: 500!important;height: 40px!important; margin-bottom: 5px!important;">Send</button>
+      </span>
+    </div>
+  </div> -->
+
+</div>

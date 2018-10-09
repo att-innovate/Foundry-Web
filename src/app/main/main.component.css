@@ -1,7 +1,7 @@
 .container {
     background-color: black;
     padding: 20px;
-    background-image: url("assets/space_bg.png");
+    background-image: url("assets/images/space_bg.png");
 
     background-size: cover;
     
@@ -10,6 +10,7 @@
 }
 
 .content {
+    background-color: black;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 2px dashed #009fdb;
@@ -18,7 +19,7 @@
 }
 
 .content2 {
-
+    background-color: black;
     border-top: 2px dashed #009fdb;
     display: flex;
     /* display:flex; */

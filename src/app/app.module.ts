@@ -7,6 +7,8 @@ import { MainComponent } from './main/main.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { TextBlockComponent } from './text-block/text-block.component';
 import { FIconComponent } from './f-icon/f-icon.component';
+import { TestComponent } from './test/test.component';
+import { BffModule } from './bff/bff.module';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { FIconComponent } from './f-icon/f-icon.component';
     MainComponent,
     ToolbarComponent,
     TextBlockComponent,
-    FIconComponent
+    FIconComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BffModule
   ],
   providers: [],
   bootstrap: [AppComponent]

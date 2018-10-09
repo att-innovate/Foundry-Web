@@ -2,5 +2,42 @@
 
     background-color: #009fdb;
     padding: 10px 20px;
-    font-family: "att_thin"
+    font-family: "att_thin";
+    height: 70px;
 }
+
+.foundry-logo {
+    max-height: 90px;
+    max-width: auto;
+    object-fit: cover;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 0px;
+}
+
+.att-logo {
+    max-height: 120px;
+    max-width: auto;
+    object-fit: cover;
+    /*position: absolute;*/
+    float: right;
+    margin-right: -10px;
+    margin-top: -25px;
+}
+/*
+.line-1 {
+    width: 332px;
+    border-top: 2px dashed white;
+    position: absolute;
+    margin-left: 270px;
+    margin-top: 31px;
+}
+
+.line-2 {
+    height: 90%;
+    border-right: 2px dashed white;
+    position: absolute;
+    margin-left: 600px;
+    margin-top: 31px;
+}
+*/
