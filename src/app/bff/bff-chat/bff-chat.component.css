@@ -1,3 +1,6 @@
+
+
+
 .container {
     position: fixed;
     right: 10px;
@@ -5,7 +8,7 @@
     /* background-color: rgb(0, 174, 255); */
     border-radius: 18px;
     width: 50px;
-    height: 50px;
+    min-height: 50px;
     z-index: 999;
     box-shadow: 0px 4px 3px #00000021;
     transition: all 300ms;
@@ -113,7 +116,6 @@
     /* float: right; */
 }
 
-
 .chat-butn:disabled {
     filter: brightness(80%);
     cursor: none;
@@ -170,9 +172,9 @@ body{
 }
 
 button {
-    height: 30px;
+    height: 20px;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 5px;
     margin: 2px;
     background-color: #e1ece1;
     border: none;
@@ -200,6 +202,7 @@ button {
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .mask:hover .tooltiptext {
+   
     visibility: visible;
 }
 
@@ -243,3 +246,40 @@ button {
 .items-collection .btn-group{
     width:90%
 }
+
+
+.multi-select-group {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 2px;
+}
+
+.select-item-selected {
+    border-radius: 10px;
+    font-size: 13px;
+    /* border: 1px solid #579df8; */
+    background-color: #1e4d87;
+    cursor: pointer;
+    padding: 2px 2px;
+    transition: 200ms all;
+}   
+
+.select-item {
+    border-radius: 10px;
+    font-size: 13px;
+    border: 1px solid #579df8;
+    background-color: #2e74ca;
+    cursor: pointer;
+    padding: 2px 2px;
+    transition: 200ms all;
+}
+
+.select-item:hover {
+    background-color: #4a89d6;
+}
+
+.select-item:active {
+    background-color: #4a89d6;
+}
+
+

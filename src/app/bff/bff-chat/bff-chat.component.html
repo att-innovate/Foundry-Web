@@ -3,28 +3,9 @@
   <chat-window #chatWindow [chatlist]="chatlist" (onMessage)="addMyMessage($event)" (onclose)="close()"></chat-window>
 
   <div #bffmain class="container" (click)="onmouseOver()">
-    <!-- <i *ngIf="!isOpen" class="fa fa-commenting fa-3x icon"></i> -->
-    <!-- <img *ngIf="!isOpen" src="assets/help.svg" alt="" height="50"> -->
+
     <div *ngIf="!isOpen" class="bubble"></div>
     <span *ngIf="isOpen" class="comment-section">
-
-
-
-      <!-- <button [disabled]="!commenttext" class="chat-butn" (click)="onChat()">
-      <i class="fa fa-comment-o " aria-hidden="true"></i>
-    </button> -->
-      <!-- <button class="help-butn" (click)="onHelp()"><i class="fa fa-question"></i></button> -->
-      <!-- <span *ngIf="!emotionSelected" class="emojis">
-        <img pTooltip="negative feedback" class="emojiButn" src="assets/unhappy.png" alt="" height="30" (click)="emotionClick(1)">
-        <img pTooltip="positive feedback" class="emojiButn" src="assets/happy.png" alt="" height="30" (click)="emotionClick(0)">
-      </span> -->
-
-      <!--  <div class="help-div">
-        <button pTooltip="guide me" class="help-butn" (click)="onHelp()">
-          <i class="fa fa-magic"></i>
-        </button>
-      </div> -->
-
 
       <div *ngIf="currentAnswear.end==true" style="margin:8px 0 0 10px;text-align: center">
         <button (click)="onstartOver()">start over</button>
@@ -33,7 +14,7 @@
       <div *ngIf="currentAnswear.uitype==0">
         <input #inp class="input-field" type="text" (keyup)="onkeyup($event)" placeholder="comment / ask me something">
         <button [disabled]="!inp.value" class="send-butn" (click)="onInputClick()">
-          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          <!-- <i class="fa fa-paper-plane" aria-hidden="true"></i> -->send
         </button>
       </div>
 
@@ -51,25 +32,23 @@
           </span>
         </div>
 
-
-
         <div *ngIf="currentAnswear && currentAnswear.uitype==3" style="text-align: center; height:100px;">
 
-          <!--span *ngFor="let item of currentAnswear.payload">
-            <input type="checkbox" [value]="item" label="item">
-            <label style="color:white" for="item">{{item}}</label>
-        </span-->
-        <div *ngFor="let item of currentAnswear.payload" class="info-block block-info clearfix">
-        <div data-toggle="buttons" class="btn-group itemcontent">
-                        <label class="btn btn-default">
-                            <div class="itemcontent">
-                                <input type="checkbox" [value]="item" label="item" name="var_id[]" autocomplete="off">
-                                <span class="fa fa-key fa-2x"></span>
-                                <label style="color:white" for="item">{{item}}</label>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+
+          <!-- <div  class="info-block block-info clearfix"> -->
+          <!-- <div data-toggle="buttons" class="btn-group itemcontent"> -->
+          <!-- <label class="btn btn-default"> -->
+          <div class="multi-select-group">
+            <div *ngFor="let item of currentAnswear.payload" [class]="isChkboxSelected(item)?'select-item-selected':'select-item'"
+              (click)="chkboxSelected(item)">
+              <input style="display:none" type="checkbox" name="chkbx" [value]="item" label="item" autocomplete="off">
+              <!-- <span class="fa fa-key fa-2x"></span> -->
+              <label style="color:white;pointer-events: none" for="chkbx">{{item}}</label>
+            </div>
+          </div>
+          <!-- </label> -->
+          <!-- </div> -->
+          <!-- </div> -->
 
 
           <button style="margin:0px 10px;" (click)="butnClick(currentAnswear)">done</button>

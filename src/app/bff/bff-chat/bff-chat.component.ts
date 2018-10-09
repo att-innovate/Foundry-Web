@@ -33,6 +33,7 @@ export class BffChatComponent implements OnInit {
 
   emotionSelected: boolean;
   currentAnswear: IAnswear;
+  multiselected: string[] = []
 
   constructor(private analyticsService: AnalyticsService, private botService: BotService) {
 
@@ -65,7 +66,7 @@ export class BffChatComponent implements OnInit {
         if (this.inp) this.inp.nativeElement.style.display = "inline";
       }, 150);
       this.bffmain.nativeElement.style.width = "350px";
-      this.bffmain.nativeElement.style.height = "300px";
+      // this.bffmain.nativeElement.style.height = "300px";
       this.bffmain.nativeElement.style["border-radius"] = "30px";
       setTimeout(() => {
         if (this.inp) this.inp.nativeElement.focus();
@@ -87,6 +88,9 @@ export class BffChatComponent implements OnInit {
     //this.botService.addUserIput('startupName', this.commenttext);
 
     this.addToChatList(this.commenttext);
+
+    this.commenttext = "";
+    this.inp.nativeElement.value = "";
     this.getNextBotAction();
   }
 
@@ -237,6 +241,24 @@ export class BffChatComponent implements OnInit {
     this.reset();
   }
 
+
+  chkboxSelected(item) {
+    console.log("select " + item);
+    if (this.multiselected.indexOf(item) != -1) {
+      this.multiselected = this.multiselected.filter(a => a != item);
+    } else {
+      this.multiselected.push(item);
+    }
+
+  }
+
+  isChkboxSelected(item) {
+    if (this.multiselected.indexOf(item) != -1) {
+      return true
+    }
+
+    return false;
+  }
 
   /* emotionClick(value) {
     this.emotionSelected = true;

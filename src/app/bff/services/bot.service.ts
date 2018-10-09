@@ -278,9 +278,7 @@ const answers: IAnswear =
 }
 */
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class BotService {
   _botAnswer$: BehaviorSubject<IAnswear>
   chatHistory: any[] = [];

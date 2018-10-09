@@ -1,9 +1,10 @@
 .container {
+    position: relative;
     z-index: 999;
     background-color: #fff;
     width: 360px;
     max-height: 400px;
-    position: absolute;
+    position: fixed;
     bottom: 5px;
     right: 5px;
     border: 0 solid #b5b6b7;
