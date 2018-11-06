@@ -1,5 +1,4 @@
 <div *ngIf="enabled">
-
   <chat-window #chatWindow [chatlist]="chatlist" (onMessage)="addMyMessage($event)" (onclose)="close()"></chat-window>
 
   <div #bffmain class="container" (click)="onmouseOver()">
@@ -18,26 +17,22 @@
         </button>
       </div>
 
-      <div *ngIf="currentAnswear.options" style="margin:8px 0 0 10px;text-align: center">
-        <span *ngIf="currentAnswear.uitype==1">
+      <div [ngSwitch]="currentAnswear?.uitype" *ngIf="currentAnswear.options" style="margin:8px 0 0 10px;text-align: center">
+        <ng-container *ngSwitchCase="1">
           <button *ngFor="let butn of currentAnswear.options" (click)="butnClick(butn)">{{butn.title}}</button>
-        </span>
+        </ng-container>
 
-        <div *ngIf="currentAnswear.uitype==2" style="text-align: center;" class="slidecontainer">
+        <ng-container *ngSwitchCase="2" style="text-align: center;" class="slidecontainer">
           <input #myRange type="range" [min]="(currentAnswear.payload[0]-1)" [max]="currentAnswear.payload[1]" [value]="rate"
             class="slider" (change)="onSlideChange($event)">
 
           <span style="margin-left:25%;display:flex;width:50%;text-align: center;justify-content:space-evenly">
             <small *ngFor="let item of [0,1,2,3,4,5]">{{item?item:' '}}</small>
           </span>
-        </div>
+        </ng-container>
 
-        <div *ngIf="currentAnswear && currentAnswear.uitype==3" style="text-align: center; height:100px;">
+        <ng-container *ngSwitchCase="3" style="text-align: center; height:100px;">
 
-
-          <!-- <div  class="info-block block-info clearfix"> -->
-          <!-- <div data-toggle="buttons" class="btn-group itemcontent"> -->
-          <!-- <label class="btn btn-default"> -->
           <div class="multi-select-group">
             <div *ngFor="let item of currentAnswear.payload" [class]="isChkboxSelected(item)?'select-item-selected':'select-item'"
               (click)="chkboxSelected(item)">
@@ -46,14 +41,10 @@
               <label style="color:white;pointer-events: none" for="chkbx">{{item}}</label>
             </div>
           </div>
-          <!-- </label> -->
-          <!-- </div> -->
-          <!-- </div> -->
 
+          <button style="margin:0px 10px;" (click)="multiSelectDoneClick(currentAnswear)">done</button>
 
-          <button style="margin:0px 10px;" (click)="butnClick(currentAnswear)">done</button>
-
-        </div>
+        </ng-container>
       </div>
 
       <p style="margin-left:20px;color:white" *ngIf="sended">message sent</p>
@@ -61,9 +52,8 @@
 
   </div>
 
-  <span *ngIf="isOpen" class="tooltiptext">click anywhere to close</span>
+  <span *ngIf="isOpen" class="anywhereButn">click anywhere to close</span>
   <div #mask *ngIf="isOpen" class="mask" (click)="onmaskClick()">
-
   </div>
 
 </div>

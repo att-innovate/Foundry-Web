@@ -1,12 +1,8 @@
 .container {
     background-color: black;
     padding: 20px;
-    background-image: url("assets/images/space_bg.png");
-
+    /* background-image: url("assets/images/space_bg.png"); */
     background-size: cover;
-    
-
-    
 }
 
 .content {

@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface IAnswear {
 
-  label?:string;
+  label?: string;
   selectOn?: any[];
   isBot: boolean;
   title?: string;
@@ -12,14 +12,14 @@ export interface IAnswear {
   options?: IAnswear[];
   payload?: any;
   end?: boolean;
-  save?:boolean;
+  save?: boolean;
 }
 
 const finishFeedbackOptions: IAnswear[] = [
   {
     isBot: false,
     title: 'submit',
-    save:true,
+    save: true,
     options: [
       {
         isBot: true,
@@ -43,7 +43,7 @@ const answers: IAnswear =
   isBot: true,
   title: `Thank you for reaching out! \n what is your name?`,
   uitype: UiType.TEXT,
-  label: "person",
+  label: "personName",
   options: [
     {
       isBot: true,
@@ -52,6 +52,7 @@ const answers: IAnswear =
       label: "startup",
       options: [
         {
+          label: "areas",
           isBot: true,
           title: "Please select the areas that #startupName is dealing with:",
           /*
@@ -68,93 +69,34 @@ const answers: IAnswear =
           payload: ["Network", "5G", "Cyber Security", "Entertainment", "Field Operations", "Customer Care", "IoT", "First Responders", "Other"],
           uitype: UiType.MULTI_SELECT,
           options: [
-              {
-                selectOn: [1],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [2],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [3],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [4],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [5],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [6],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [7],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [8],
-                isBot: true,
-                options: finishFeedbackOptions
-              },
-              {
-                selectOn: [9],
-                title: "Please specify the other areas you were reffering to:",
-                uitype: UiType.TEXT,
-                label: "other",
-                isBot: true,
-                options: finishFeedbackOptions
-              }
-                /*
+            {
+              selectOn: [1, 2, 3, 4, 5, 6, 7, 8],
+              isBot: true,
+              title: "Thanks for reaching out!",
+              uitype: UiType.BUTN_GROUP,
+              options: finishFeedbackOptions
+            },
+            {
+              selectOn: [9],
+              title: "Please specify the other areas you were reffering to:",
+              uitype: UiType.TEXT,
+              label: "other",
+              isBot: true,
+              options: [
                 {
-                  label:"type",
-                  isBot: false,
-                  title: 'Network',
-                  options: []
-                },
-                {
-                  label:"type",
-                  isBot: false,
-                  title: 'Customer Care',
-                  options: []
-                },
-                {
-                  label:"type",
-                  isBot: false,
-                  title: 'First Responders',
-                  options: []
-                },
-                {
-                  label:"type",
-                  isBot: false,
-                  title: 'Other...',
-                  options: [
-                    {
-                      isBot: true,
-                      title: "Can you be more specific?",
-                      uitype: UiType.TEXT,
-                      label: "other"
-                    }
-                  ]
+                  isBot: true,
+                  title: "Thanks for reaching out!",
+                  uitype: UiType.BUTN_GROUP,
+                  options: finishFeedbackOptions
                 }
-                */
               ]
             }
           ]
         }
       ]
     }
+  ]
+}
 
 
 /*
@@ -283,8 +225,6 @@ export class BotService {
   _botAnswer$: BehaviorSubject<IAnswear>
   chatHistory: any[] = [];
 
-
-
   constructor() {
     this._botAnswer$ = <BehaviorSubject<IAnswear>>new BehaviorSubject(Object.assign({}, answers));
   }
@@ -299,7 +239,6 @@ export class BotService {
   addUserIput(label: string, input: string) {
     this.chatHistory.push({ label: label, value: input });
   }
-
 
   getUserInput(byLabel: string): string {
     let obj = this.chatHistory.find(a => a.label == byLabel)

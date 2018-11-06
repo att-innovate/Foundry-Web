@@ -7,17 +7,15 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { BotService } from './services/bot.service';
-//import { TooltipModule } from 'primeng/primeng';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule
-    //,TooltipModule
   ],
   declarations: [BffChatComponent, MessageComponent, ChatWindowComponent],
-  providers: [AnalyticsService,BotService],
+  providers: [AnalyticsService, BotService],
   exports: [BffChatComponent],
 })
 export class BffModule { }

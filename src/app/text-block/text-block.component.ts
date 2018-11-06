@@ -75,4 +75,9 @@ export class TextBlockComponent implements OnInit {
   }
 
 
+  toggleState(){
+    
+  }
+
+
 }

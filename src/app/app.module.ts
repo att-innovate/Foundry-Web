@@ -9,7 +9,7 @@ import { TextBlockComponent } from './text-block/text-block.component';
 import { FIconComponent } from './f-icon/f-icon.component';
 import { TestComponent } from './test/test.component';
 import { BffModule } from './bff/bff.module';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { BffModule } from './bff/bff.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    BffModule
+    BffModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
